@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/PPDBYBA_DB</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">psg123</property>
+        <!--<mapping class="com.ubosque.apicuatropatas.model.AdjuntovisitaEntity"/>-->
+        <mapping class="com.ubosque.apicuatropatas.model.BarrioEntity"/>
+        <mapping class="com.ubosque.apicuatropatas.model.CasoEntity"/>
+        <mapping class="com.ubosque.apicuatropatas.model.LocalidadEntity"/>
+        <mapping class="com.ubosque.apicuatropatas.model.MascotaEntity"/>
+        <!--<mapping class="com.ubosque.apicuatropatas.model.MascotaauditoriaEntity"/>-->
+        <!--<mapping class="com.ubosque.apicuatropatas.model.MicrochipgoalsEntity"/>-->
+        <mapping class="com.ubosque.apicuatropatas.model.RolusuarioEntity"/>
+        <mapping class="com.ubosque.apicuatropatas.model.TipocasoEntity"/>
+        <mapping class="com.ubosque.apicuatropatas.model.TipodocumentoEntity"/>
+        <mapping class="com.ubosque.apicuatropatas.model.TipovisitaEntity"/>
+        <mapping class="com.ubosque.apicuatropatas.model.UsuarioEntity"/>
+        <mapping class="com.ubosque.apicuatropatas.model.VisitaEntity"/>
+        <!--<mapping class="com.ubosque.apicuatropatas.model.VstavisitasveterinariaEntity"/>
+        <mapping class="com.ubosque.apicuatropatas.model.VstausuariolocalEntity"/>-->
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
