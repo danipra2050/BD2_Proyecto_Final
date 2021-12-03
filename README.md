@@ -1,6 +1,6 @@
 # BD2 Proyecto Final
 
-##Api para el manejo de Usuarios
+## Api para el manejo de Usuarios
 Se crean 3 endpoint para hacer el manejo de los usuarios en el aplicativo.
 
 <ul>
