@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/user")
 public class LoginResource {
 
-    private LoginController login = new LoginController();
+    private final LoginController login = new LoginController();
 
     @POST
     @Path("/login")

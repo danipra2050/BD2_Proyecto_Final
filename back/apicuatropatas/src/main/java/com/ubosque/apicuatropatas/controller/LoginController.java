@@ -60,7 +60,7 @@ public class LoginController implements ILogin {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
 
-            session.save(getUsuarioEntity(usuario, false));
+            session.saveOrUpdate(getUsuarioEntity(usuario, false));
             session.getTransaction().commit();
 
             response.setCode(Constante.ResponseCode.SUCCESS);

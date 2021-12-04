@@ -1,126 +1,48 @@
 package com.ubosque.apicuatropatas.model;
 
 import javax.persistence.*;
-import java.math.BigInteger;
-import java.util.Objects;
 
+@Table(name = "mascota", indexes = {
+        @Index(name = "idx_mascota_nommascota", columnList = "nombremascota"),
+        @Index(name = "idx_mascota_edad", columnList = "edad")
+})
 @Entity
-@Table(name = "mascota", schema = "public", catalog = "PPDBYBA_DB")
 public class MascotaEntity {
-    private String codigomascota;
-    private String documentousuario;
+    @Id
+    @Column(name = "codigomascota", nullable = false, length = 10)
+    private String id;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "documentousuario", nullable = false)
+    private UsuarioEntity documentousuario;
+
+    @Column(name = "nombremascota", nullable = false, length = 30)
     private String nombremascota;
-    private int edad;
+
+    @Column(name = "edad", nullable = false)
+    private Integer edad;
+
+    @Column(name = "especie", nullable = false, length = 30)
     private String especie;
+
+    @Column(name = "sexo", nullable = false, length = 2)
     private String sexo;
-    private BigInteger tamano;
-    private boolean peligroso;
+
+    @Column(name = "tamano", nullable = false)
+    private Double tamano;
+
+    @Column(name = "peligroso", nullable = false)
+    private Integer peligroso;
+
+    @Column(name = "foto", nullable = false, length = 50)
     private String foto;
-    private boolean activo;
+
+    @Column(name = "activo", nullable = false)
+    private Integer activo;
+
+    @Column(name = "chip", length = 50)
     private String chip;
 
-    @Id
-    @Column(name = "codigomascota")
-    public String getCodigomascota() {
-        return codigomascota;
-    }
-
-    public void setCodigomascota(String codigomascota) {
-        this.codigomascota = codigomascota;
-    }
-
-    @Basic
-    @Column(name = "documentousuario")
-    public String getDocumentousuario() {
-        return documentousuario;
-    }
-
-    public void setDocumentousuario(String documentousuario) {
-        this.documentousuario = documentousuario;
-    }
-
-    @Basic
-    @Column(name = "nombremascota")
-    public String getNombremascota() {
-        return nombremascota;
-    }
-
-    public void setNombremascota(String nombremascota) {
-        this.nombremascota = nombremascota;
-    }
-
-    @Basic
-    @Column(name = "edad")
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    @Basic
-    @Column(name = "especie")
-    public String getEspecie() {
-        return especie;
-    }
-
-    public void setEspecie(String especie) {
-        this.especie = especie;
-    }
-
-    @Basic
-    @Column(name = "sexo")
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    @Basic
-    @Column(name = "tamano")
-    public BigInteger getTamano() {
-        return tamano;
-    }
-
-    public void setTamano(BigInteger tamano) {
-        this.tamano = tamano;
-    }
-
-    @Basic
-    @Column(name = "peligroso")
-    public boolean isPeligroso() {
-        return peligroso;
-    }
-
-    public void setPeligroso(boolean peligroso) {
-        this.peligroso = peligroso;
-    }
-
-    @Basic
-    @Column(name = "foto")
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
-    @Basic
-    @Column(name = "activo")
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
-    @Basic
-    @Column(name = "chip")
     public String getChip() {
         return chip;
     }
@@ -129,16 +51,83 @@ public class MascotaEntity {
         this.chip = chip;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MascotaEntity that = (MascotaEntity) o;
-        return edad == that.edad && peligroso == that.peligroso && activo == that.activo && Objects.equals(codigomascota, that.codigomascota) && Objects.equals(documentousuario, that.documentousuario) && Objects.equals(nombremascota, that.nombremascota) && Objects.equals(especie, that.especie) && Objects.equals(sexo, that.sexo) && Objects.equals(tamano, that.tamano) && Objects.equals(foto, that.foto) && Objects.equals(chip, that.chip);
+    public Integer getActivo() {
+        return activo;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(codigomascota, documentousuario, nombremascota, edad, especie, sexo, tamano, peligroso, foto, activo, chip);
+    public void setActivo(Integer activo) {
+        this.activo = activo;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public Integer getPeligroso() {
+        return peligroso;
+    }
+
+    public void setPeligroso(Integer peligroso) {
+        this.peligroso = peligroso;
+    }
+
+    public Double getTamano() {
+        return tamano;
+    }
+
+    public void setTamano(Double tamano) {
+        this.tamano = tamano;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
+    public String getNombremascota() {
+        return nombremascota;
+    }
+
+    public void setNombremascota(String nombremascota) {
+        this.nombremascota = nombremascota;
+    }
+
+    public UsuarioEntity getDocumentousuario() {
+        return documentousuario;
+    }
+
+    public void setDocumentousuario(UsuarioEntity documentousuario) {
+        this.documentousuario = documentousuario;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
