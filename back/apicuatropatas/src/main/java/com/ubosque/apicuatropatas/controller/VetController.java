@@ -80,7 +80,7 @@ public class VetController implements IVet {
             MascotaEntity petEntity = q.uniqueResult();
             petEntity.setChip(petRequest.getChip());
 
-            if(petEntity.getChip().isEmpty()) {
+            if(petEntity.getChip() == null) {
                 session.update(petEntity);
                 session.getTransaction().commit();
                 session.close();
