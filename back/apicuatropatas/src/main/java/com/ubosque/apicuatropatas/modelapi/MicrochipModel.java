@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class MicrochipModel {
     //Attributes
+    private String petCode;
     private Timestamp timestamp;
     private String microchip;
     private String pateName;
@@ -16,8 +17,9 @@ public class MicrochipModel {
     public MicrochipModel(){}
 
     //Constructor with parameters
-    public MicrochipModel(Timestamp timestamp, String microchip, String pateName, String ownerName,
+    public MicrochipModel(String petCode, Timestamp timestamp, String microchip, String pateName, String ownerName,
                           String species, GeoModel geolocation, VitalSignsModel vitalSigns) {
+        this.petCode = petCode;
         this.timestamp = timestamp;
         this.microchip = microchip;
         this.pateName = pateName;
@@ -25,6 +27,14 @@ public class MicrochipModel {
         this.species = species;
         this.geolocation = geolocation;
         this.vitalSigns = vitalSigns;
+    }
+
+    public String getPetCode() {
+        return petCode;
+    }
+
+    public void setPetCode(String petCode) {
+        this.petCode = petCode;
     }
 
     public Timestamp getTimestamp() {

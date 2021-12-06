@@ -1,5 +1,6 @@
 package com.ubosque.apicuatropatas.interfaces;
 
+import com.ubosque.apicuatropatas.modelapi.CaseRequest;
 import com.ubosque.apicuatropatas.modelapi.MicrochipModel;
 import com.ubosque.apicuatropatas.modelapi.PetRequest;
 import com.ubosque.apicuatropatas.modelapi.Response;
@@ -28,17 +29,16 @@ public interface IPet{
     Response createChip(MicrochipModel microchipData);
 
     /**
-     * Método para crear la localización de una mascota Redis que explira en un tiempo determinado
-     * @param chip String
-     * @param location String
-     * @return response Response
-     */
-    Response createLocation(String chip, String location);
-
-    /**
      * Creación de JSON necesario para obetener la localizacion de la mascota
      * @param chip String
      * @return response Response
      */
     Response createPetLocation(String chip);
+
+    /**
+     * Método con el cual se crean los casos asociados a una mascota
+     * @parm caseRequest CaseRequest
+     * @return response Response
+     */
+    Response createCase(CaseRequest caseRequest);
 }

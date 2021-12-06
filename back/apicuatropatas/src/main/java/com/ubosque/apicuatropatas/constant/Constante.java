@@ -19,6 +19,9 @@ public class Constante {
     public static class Id{
         private Id(){}
         public static final String PET_ID = "MAS";
+        public static final String CASE_ID = "CAS";
+        public static final String VISIT_ID = "VIS";
+        public static final String VISITA_CHIP = "TPV003";
     }
 
     public static class DbInfo{

@@ -1,6 +1,7 @@
 package com.ubosque.apicuatropatas.api;
 
 import com.ubosque.apicuatropatas.controller.PetController;
+import com.ubosque.apicuatropatas.modelapi.CaseRequest;
 import com.ubosque.apicuatropatas.modelapi.PetRequest;
 import com.ubosque.apicuatropatas.modelapi.Response;
 
@@ -29,5 +30,13 @@ public class PetResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response petsByOwner(PetRequest pet){
         return petController.petsByOwner(pet.getDocumentousuario());
+    }
+
+    @POST
+    @Path("/petcase")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response petsCase(CaseRequest caseRequest){
+        return petController.createCase(caseRequest);
     }
 }
