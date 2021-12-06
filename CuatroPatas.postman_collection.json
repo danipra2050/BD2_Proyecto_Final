@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "1b44bc05-0f08-4af7-b361-71af54ceebd8",
+		"name": "CuatroPatas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": \"nsoler@unbosque.edu.co\",\r\n    \"password\": \"5f0bd8ea4a350a5c8e6fc99183946f7f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7001/apicuatropatas-1.0-SNAPSHOT/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"apicuatropatas-1.0-SNAPSHOT",
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"documento\": \"1130621865\",\r\n    \"codBarrio\": \"1203\",\r\n    \"codTipoDoc\": \"TPDOC13\",\r\n    \"codRol\": \"ROL002\",\r\n    \"nombre\": \"Veterinario Perez Zapata\",\r\n    \"telefono\": 3507130458,\r\n    \"email\": \"vetperez@veterinaria.com\",\r\n    \"direccion\": \"en algun lugar\",\r\n    \"contrasena\": \"c893bad68927b457dbed39460e6afd62\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7001/apicuatropatas-1.0-SNAPSHOT/api/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"apicuatropatas-1.0-SNAPSHOT",
+						"api",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signupofficial",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"documento\": \"1130621867\",\r\n    \"codBarrio\": \"1203\",\r\n    \"codTipoDoc\": \"TPDOC13\",\r\n    \"nombre\": \"Funcionario Perez\",\r\n    \"telefono\": 3507130458,\r\n    \"email\": \"funperez@funcionario.com\",\r\n    \"direccion\": \"en algun lugar 2\",\r\n    \"contrasena\": \"c893bad68927b457dbed39460e6afd62\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7001/apicuatropatas-1.0-SNAPSHOT/api/user/signupofficial",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"apicuatropatas-1.0-SNAPSHOT",
+						"api",
+						"user",
+						"signupofficial"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createpet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"documentousuario\": \"123456789\",\r\n    \"nombremascota\": \"Carlota Ramirez update\",\r\n    \"edad\": 3,\r\n    \"especie\": \"criollo\",\r\n    \"sexo\": \"F\",\r\n    \"tamano\": 102,\r\n    \"peligroso\": \"0\",\r\n    \"foto\": \"prueba de foto\",\r\n    \"activo\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7001/apicuatropatas-1.0-SNAPSHOT/api/pet/createpet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"apicuatropatas-1.0-SNAPSHOT",
+						"api",
+						"pet",
+						"createpet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "petlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"documentousuario\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7001/apicuatropatas-1.0-SNAPSHOT/api/pet/petlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"apicuatropatas-1.0-SNAPSHOT",
+						"api",
+						"pet",
+						"petlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "petcase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoCaso\": \"TC001\",\r\n    \"codigoMascota\": \"MAS001\",\r\n    \"observacion\": \"prueba observacion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7001/apicuatropatas-1.0-SNAPSHOT/api/pet/petcase",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"apicuatropatas-1.0-SNAPSHOT",
+						"api",
+						"pet",
+						"petcase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createvisit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigoMascota\": \"MAS001\",\r\n    \"tipoVisita\": \"TPV003\",\r\n    \"usuario\": \"1130621865\",\r\n    \"observacion\": \"primera observacion\",\r\n    \"chip\": \"85274185252741\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7001/apicuatropatas-1.0-SNAPSHOT/api/vet/createvisit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"apicuatropatas-1.0-SNAPSHOT",
+						"api",
+						"vet",
+						"createvisit"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -42,22 +42,36 @@ public class VetController implements IVet {
             tipoVisita.setCodigotipovisita(visita.getTipoVisita());
             visitaEntity.setCoditotipovisita(tipoVisita);
 
+            Response responsePet = null;
             if(visita.getTipoVisita().contains(Constante.Id.VISITA_CHIP)){
                 PetRequest p = new PetRequest();
                 p.setCodigo(visita.getCodigoMascota());
                 p.setChip(visita.getChip());
-                assignChip(p);
+                responsePet = assignChip(p);
+
+                assert responsePet != null;
+                if(responsePet.getCode().contains(Constante.ResponseCode.SUCCESS)){
+                    session.save(visitaEntity);
+                    session.getTransaction().commit();
+                    session.close();
+
+                    response.setCode(Constante.ResponseCode.SUCCESS);
+                    response.setMessage(Constante.ResponseMesg.SUCCESS);
+                    response.setData(visitaEntity);
+                }else{
+                    response.setCode(Constante.ResponseCode.ERROR);
+                    response.setMessage("La Mascota ya tiene un chip asociado");
+                }
+            }else{
+                session.save(visitaEntity);
+                session.getTransaction().commit();
+                session.close();
+
+                response.setCode(Constante.ResponseCode.SUCCESS);
+                response.setMessage(Constante.ResponseMesg.SUCCESS);
+                response.setData(visitaEntity);
             }
 
-
-
-            session.save(visitaEntity);
-            session.getTransaction().commit();
-            session.close();
-
-            response.setCode(Constante.ResponseCode.SUCCESS);
-            response.setMessage(Constante.ResponseMesg.SUCCESS);
-            response.setData(visitaEntity);
         }catch(Exception ex){
             response.setCode(Constante.ResponseCode.ERROR);
             response.setMessage(ex.getMessage());
@@ -78,9 +92,9 @@ public class VetController implements IVet {
             Query<MascotaEntity> q = session.createQuery("FROM MascotaEntity WHERE id = :codPet", MascotaEntity.class)
                     .setParameter("codPet", petRequest.getCodigo());
             MascotaEntity petEntity = q.uniqueResult();
-            petEntity.setChip(petRequest.getChip());
 
             if(petEntity.getChip() == null) {
+                petEntity.setChip(petRequest.getChip());
                 session.update(petEntity);
                 session.getTransaction().commit();
                 session.close();
@@ -89,18 +103,16 @@ public class VetController implements IVet {
                 response.setMessage(Constante.ResponseMesg.SUCCESS);
                 response.setData(petEntity);
             }else{
-                response.setCode("401");
+                response.setCode("199");
                 response.setMessage("Mascota con chip asociado.");
             }
-
-
         }catch(Exception ex){
             response.setCode(Constante.ResponseCode.ERROR);
             response.setMessage(ex.getMessage());
             if(session != null)
                 session.getTransaction().rollback();
         }
-        return null;
+        return response;
     }
 
     private String visitaId(){
